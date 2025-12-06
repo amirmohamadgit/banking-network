@@ -17,4 +17,16 @@ public class CreditCard extends BaseEntity{
         this.cardNumber = cardNumber;
         this.balance = balance;
     }
+
+    public Banks getBank() {
+        return bank;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public long getBalance() {
+        return balance;
+    }
 }

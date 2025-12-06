@@ -35,4 +35,28 @@ public class User extends BaseEntity{
     public void setAccount(CreditCard creditCard) {
         this.creditCards.add(creditCard);
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getNationalCode() {
+        return nationalCode;
+    }
+
+    public String getPhonNumber() {
+        return phonNumber;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }
