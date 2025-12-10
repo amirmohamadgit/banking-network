@@ -1,6 +1,6 @@
-package repository.base;
+package repositories.base;
 
-import intity.BaseEntity;
+import entities.BaseEntity;
 
 import java.util.List;
 

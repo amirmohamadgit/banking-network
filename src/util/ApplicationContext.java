@@ -1,11 +1,18 @@
 package util;
 
+import repositories.CreditCardRepository;
+import repositories.CreditCardRepositoryImpl;
+import repositories.UserRepository;
+import repositories.UserRepositoryImpl;
+
 import java.sql.*;
 
 public class ApplicationContext {
 
     private static ApplicationContext CTX;
     private Connection connection;
+    private UserRepository userRepository;
+    private CreditCardRepository creditCardRepository;
 
     private ApplicationContext() {
     }
@@ -28,5 +35,15 @@ public class ApplicationContext {
             }
         }
         return connection;
+    }
+
+    public UserRepository getUserRepository() {
+        if (userRepository == null) userRepository = new UserRepositoryImpl(getConnection());
+        return userRepository;
+    }
+
+    public CreditCardRepository getCreditCardRepository() {
+        if (creditCardRepository == null) creditCardRepository = new CreditCardRepositoryImpl(getConnection());
+        return creditCardRepository;
     }
 }

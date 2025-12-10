@@ -1,6 +1,6 @@
-package repository.base;
+package repositories.base;
 
-import intity.BaseEntity;
+import entities.BaseEntity;
 
 import java.sql.*;
 import java.sql.PreparedStatement;
@@ -27,19 +27,19 @@ public abstract class AbstractCrudRepository implements CrudRepository {
             return insert(baseEntity);
     }
 
-    private BaseEntity insert(BaseEntity baseDomain) {
+    private BaseEntity insert(BaseEntity baseEntity) {
         PreparedStatement statement = getInsertStatement();
         try {
-            fillPreparedStatementForInsert(baseDomain);
+            fillPreparedStatementForInsert(baseEntity);
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
-                baseDomain.setId(resultSet.getInt(1));
+                baseEntity.setId(resultSet.getInt(1));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return baseDomain;
+        return baseEntity;
     }
 
     private PreparedStatement getInsertStatement() {
@@ -80,4 +80,5 @@ public abstract class AbstractCrudRepository implements CrudRepository {
     public abstract String[] getInsertColumns();
     public abstract String getTableName();
     protected abstract void fillPreparedStatementForInsert(BaseEntity baseEntity);
+
 }

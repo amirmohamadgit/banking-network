@@ -1,4 +1,4 @@
-package intity;
+package entities;
 
 public class BaseEntity {
     private Integer id;

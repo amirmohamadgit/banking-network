@@ -1,4 +1,4 @@
-package intity;
+package entities;
 
 public enum Banks {
     PERSIAN,
